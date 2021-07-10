@@ -15,11 +15,26 @@ const db= firebase.firestore();
     newform.addEventListener("submit", function(event){
 
         event.preventDefault();
+
        
         if(firstname.value && lastname.value && username.value && number.value && email.value && password.value && cpassword.value){
-            console.log(firstname.value, lastname.value, username.value, number.value, email.value, password.value, cpassword.value);
+          firebase
+                .auth()
+                .createUserWithEmailAndPassword(email.value, password.value)
+                .then(function (data) {
+                    const user = firebase.auth().currentUser;
+
+                    addUser(firstname.value, lastname.value, username.value, number.value, email.value, password.value, cpassword.value);
+                })
+                .catch(function (error) {
+                    alert(error.message);
+                    console.error(error.message);
+                });
+ 
+          
+          console.log(firstname.value, lastname.value, username.value, number.value, email.value, password.value, cpassword.value);
         }
-        addUser(firstname.value, lastname.value, username.value, number.value, email.value, password.value, cpassword.value);
+       
       
        
     });
