@@ -21,25 +21,28 @@
 
 
     <!--MAIN USER ACCOUNT-->
- 
+
     <form action="" class="old-user" id="userform">
 
-      <label for="username" class="username">username</label>  
-      <input type="text" placeholder="username" id="username">
+      <label for="username" class="username">Username</label>  
+      <input type="text" placeholder="email" id="email">
       <br/><br/>
       <label for="password" class="password">password</label>
       <input type="text" placeholder="password" id="password">
       <br/><br/><br/>
-      <input type="submit" class="login" value="login">
+      <input type="submit" class="login" value="login" id="login">
 
     </form>
 
-      <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+
+      
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-     <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+
 
 <script>
   // Your web app's Firebase configuration
@@ -57,6 +60,6 @@
   firebase.initializeApp(firebaseConfig);
   </script>
   </script>
-  <script src="js/script.js"></script>
+  <script src="js/login.js"></script>
 </body>
 </html>
