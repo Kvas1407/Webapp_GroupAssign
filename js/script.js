@@ -30,6 +30,18 @@ document.addEventListener("DOMContentLoaded", function() {
       })
       }
 
+      firebase
+      .auth()
+      .signOut()
+      .then(() => {
+          // console.log('Sign-out successful.');
+      })
+      .catch((error) => {
+          alert(error.message);
+          // console.log('Sign-out error', error);
+          // An error happened.
+      });
+      window.location = "index.html";
 
 
     function getUser(){
@@ -48,6 +60,17 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }  
 
+    function deleteFeedback(id) {
+        db.collection("feedback").doc(id).delete().then( function () {
+            console.log('Feedback successfully deleted!',);
+        }).catch(function (error) {
+            console.log("Error deleting the feedback", error);
+
+
+        });
+    }
+
+
     function getUserRealTime(){
         db.collection("FeedbackUsers")
         .orderBy("timestamp", "asc")
@@ -59,9 +82,13 @@ document.addEventListener("DOMContentLoaded", function() {
             });
             users.innerHTML= output;
 
-            
+                        
          });
         }
+
+        
+
+            span.onclick = () => deleteFeedback(doc.id);
         
   //  getUser();
   getUserRealTime();
